@@ -16,9 +16,13 @@ class OEmbedConsumerFunction {
 	public static function oembedTag( $content, $args, $parser ) {
 		// simple for now ;)
 		$url = $content;
-		
-		$data = self::discoverAndFetchInfo( $url );
-		return self::formatEmbed( $data );
+
+		try {	
+			$data = self::discoverAndFetchInfo( $url );
+			return self::formatEmbed( $data );
+		} catch (MWException $e) {
+			return htmlspecialchars( $e->getMessage() );
+		}
 		//return '<pre>' . htmlspecialchars( var_export( $data, true ) ) . '</pre>';
 	}
 
