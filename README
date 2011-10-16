@@ -1,0 +1,23 @@
+http://oembed.com/ for protocol docs
+
+
+Example to use:
+<oembed>http://www.youtube.com/watch?v=Sau6l9TOhgk</oembed>
+
+This currently works only with sites that offer discoverable oEmbed JSON data.
+
+It also has no security -- provider sites may produce arbitrary HTML which will be
+included, which is NOT acceptable to run on any real site anywhere.
+
+
+
+Todo:
+* sane error handling
+* facility to use a restricted iframe (security!)
+* cache data
+* size hints
+* redo as parser function, accept parameters in style of [[Image:]]
+* toolbar insert helper
+* whitelist known providers?
+* backup providers such as embed.ly?
+* asynchronous fetch or such?
